@@ -19,11 +19,14 @@
         rel="stylesheet">
 
     <!-- Icons -->
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <!-- Resource Hints -->
-    <link rel="preload" as="image" href="about-hero.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="about-hero.jpg" fetchpriority="high">
 
     <script>
         tailwind.config = {
@@ -138,7 +141,8 @@
                 </div>
                 <div class="relative">
                     <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-8 border-white/10">
-                        <img src="about-hero.jpg" alt="Climate Action Team" class="w-full h-full object-cover">
+                        <img src="about-hero.jpg" alt="Climate Action Team" class="w-full h-full object-cover"
+                            width="1200" height="900" fetchpriority="high">
                     </div>
                     <!-- Decorative element -->
                     <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-teal/20 rounded-full blur-3xl"></div>
