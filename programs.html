@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Programs - CEEECF</title>
+    <meta name="description"
+        content="Explore CEEECF's core programs driving environmental sustainability and community resilience.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#1B4D3E',
+                            brown: '#5D4037',
+                            white: '#F9FBF9',
+                            teal: '#008080',
+                            beige: '#F5F5DC',
+                            dark: '#0A1A15',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    maxWidth: {
+                        'page': '1320px',
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 50px -12px rgba(27, 77, 62, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        /* Standard styling fallbacks */
+        .accordion-content { max-height: 0; overflow: hidden; transition: all 0.3s ease-in-out; }
+        .accordion-content.active { max-height: 1000px; }
+    </style>
+</head>
+
+<body class="bg-brand-white text-gray-900 font-sans leading-relaxed">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <nav class="max-w-page mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html"><img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto" loading="lazy"></a>
+            </div>
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="programs.html" class="nav-link text-brand-teal after:w-full">Programs</a>
+                <a href="index.html#projects" class="nav-link">Projects & Impact</a>
+                <a href="partnerships.html" class="nav-link">Partner With Us</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="donate.html"
+                    class="bg-brand-green text-white px-8 py-2 rounded-md font-bold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 flex items-center gap-2">Donate</a>
+                <!-- Mobile Menu Toggle -->
+                <button id="menu-btn" class="lg:hidden text-brand-green flex items-center">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="menu-overlay"
+            class="fixed inset-0 bg-brand-dark/40 backdrop-blur-sm z-[55] hidden lg:hidden transition-opacity duration-300 opacity-0">
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed top-0 right-0 w-[85%] max-w-sm h-screen bg-gradient-to-b from-[#11382E] to-[#0A261F] z-[60] flex flex-col p-8 transition-transform duration-500 translate-x-full lg:hidden shadow-2xl overflow-y-auto">
+            <div class="flex justify-between items-center mb-16">
+                <img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto brightness-0 invert" loading="lazy">
+                <button id="close-menu" class="text-white hover:rotate-90 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-4xl">close</span>
+                </button>
+            </div>
+            <div class="flex flex-col gap-8 text-2xl font-bold text-white relative z-10 font-heading">
+                <a href="index.html" class="hover:text-brand-teal transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-teal transition-colors">About</a>
+                <a href="programs.html" class="text-brand-teal transition-colors">Programs</a>
+                <a href="index.html#projects" class="hover:text-brand-teal transition-colors">Projects & Impact</a>
+                <a href="partnerships.html" class="hover:text-brand-teal transition-colors">Partner With Us</a>
+
+                <a href="donate.html"
+                    class="inline-block px-8 py-5 bg-brand-teal text-white rounded-xl text-center mt-4 text-xl font-black shadow-lg hover:shadow-brand-teal/20 transition-all active:scale-95">Donate
+                    Now</a>
+            </div>
+            <!-- Decorative background element for menu -->
+            <div class="absolute bottom-10 right-10 opacity-5 pointer-events-none">
+                <span class="material-symbols-outlined text-[240px] text-white">eco</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="bg-brand-green text-white py-24 relative overflow-hidden">
+            <div class="absolute inset-0 z-0 scale-105 opacity-20 pointer-events-none">
+                <span class="material-symbols-outlined text-[600px] absolute -right-40 -top-40">eco</span>
+            </div>
+            <div class="max-w-page mx-auto px-4 relative z-10">
+                <div class="max-w-3xl">
+                    <span
+                        class="inline-block py-1 px-3 bg-brand-teal text-white text-xs font-bold tracking-widest uppercase rounded mb-6">Our
+                        Initiatives</span>
+                    <h1 class="font-heading text-5xl md:text-6xl font-black mb-8 leading-tight">Driving Sustainable
+                        Change Through <span class="text-brand-teal">Focused Action</span></h1>
+                    <p class="text-xl text-brand-white/90 leading-relaxed max-w-2xl">Our programs address the complex
+                        intersections of environmental sustainability, community resilience, and social equity in
+                        Nigeria.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAMS LIST -->
+        <section class="py-24">
+            <div class="max-w-page mx-auto px-4">
+                <div class="space-y-12">
+                    <!-- Agriculture -->
+                    <div
+                        class="bg-white rounded-3xl border border-gray-100 hover:border-brand-teal transition-all duration-500 overflow-hidden group">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div
+                                class="w-full md:w-1/4 bg-brand-green/5 p-12 flex items-center justify-center group-hover:bg-brand-green transition-colors duration-500">
+                                <span
+                                    class="material-symbols-outlined text-6xl text-brand-green group-hover:text-white transition-colors duration-500">potted_plant</span>
+                            </div>
+                            <div class="w-full md:w-3/4 p-8 md:p-12">
+                                <h3 class="font-heading text-2xl font-bold text-brand-green mb-4">Regenerative
+                                    Agriculture & Food Security</h3>
+                                <p class="text-gray-600 text-lg mb-8 leading-relaxed">Promoting sustainable farming
+                                    practices that restore soil health while ensuring nutrition and income security for
+                                    rural communities.</p>
+                                <a href="agriculture-food-security.html"
+                                    class="inline-flex items-center gap-2 text-brand-teal font-bold hover:gap-4 transition-all group-hover:text-brand-green">
+                                    Learn More
+                                    <span class="material-symbols-outlined">east</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Climate Action -->
+                    <div
+                        class="bg-white rounded-3xl border border-gray-100 hover:border-brand-teal transition-all duration-500 overflow-hidden group">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div
+                                class="w-full md:w-1/4 bg-brand-green/5 p-12 flex items-center justify-center group-hover:bg-brand-green transition-colors duration-500">
+                                <span
+                                    class="material-symbols-outlined text-6xl text-brand-green group-hover:text-white transition-colors duration-500">eco</span>
+                            </div>
+                            <div class="w-full md:w-3/4 p-8 md:p-12">
+                                <h3 class="font-heading text-2xl font-bold text-brand-green mb-4">Mitigation Techniques
+                                    & Climate Action</h3>
+                                <p class="text-gray-600 text-lg mb-8 leading-relaxed">Reducing greenhouse gas emissions
+                                    and building community resilience against the increasing impacts of environmental
+                                    change.</p>
+                                <a href="climate-action.html"
+                                    class="inline-flex items-center gap-2 text-brand-teal font-bold hover:gap-4 transition-all group-hover:text-brand-green">
+                                    Learn More
+                                    <span class="material-symbols-outlined">east</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WASH -->
+                    <div
+                        class="bg-white rounded-3xl border border-gray-100 hover:border-brand-teal transition-all duration-500 overflow-hidden group">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div
+                                class="w-full md:w-1/4 bg-brand-green/5 p-12 flex items-center justify-center group-hover:bg-brand-green transition-colors duration-500">
+                                <span
+                                    class="material-symbols-outlined text-6xl text-brand-green group-hover:text-white transition-colors duration-500">water_drop</span>
+                            </div>
+                            <div class="w-full md:w-3/4 p-8 md:p-12">
+                                <h3 class="font-heading text-2xl font-bold text-brand-green mb-4">Water, Sanitation, &
+                                    Hygiene (WASH)</h3>
+                                <p class="text-gray-600 text-lg mb-8 leading-relaxed">Improving access to clean water
+                                    and sanitation facilities while promoting essential hygiene education for healthier
+                                    communities.</p>
+                                <a href="wash.html"
+                                    class="inline-flex items-center gap-2 text-brand-teal font-bold hover:gap-4 transition-all group-hover:text-brand-green">
+                                    Learn More
+                                    <span class="material-symbols-outlined">east</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div
+                        class="bg-white rounded-3xl border border-gray-100 hover:border-brand-teal transition-all duration-500 overflow-hidden group">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div
+                                class="w-full md:w-1/4 bg-brand-green/5 p-12 flex items-center justify-center group-hover:bg-brand-green transition-colors duration-500">
+                                <span
+                                    class="material-symbols-outlined text-6xl text-brand-green group-hover:text-white transition-colors duration-500">school</span>
+                            </div>
+                            <div class="w-full md:w-3/4 p-8 md:p-12">
+                                <h3 class="font-heading text-2xl font-bold text-brand-green mb-4">Environmental
+                                    Awareness & Education</h3>
+                                <p class="text-gray-600 text-lg mb-8 leading-relaxed">Empowering the next generation and
+                                    local leaders with the knowledge and tools to protect their natural environment.</p>
+                                <a href="environmental-education.html"
+                                    class="inline-flex items-center gap-2 text-brand-teal font-bold hover:gap-4 transition-all group-hover:text-brand-green">
+                                    Learn More
+                                    <span class="material-symbols-outlined">east</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Peacebuilding -->
+                    <div
+                        class="bg-white rounded-3xl border border-gray-100 hover:border-brand-teal transition-all duration-500 overflow-hidden group">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div
+                                class="w-full md:w-1/4 bg-brand-green/5 p-12 flex items-center justify-center group-hover:bg-brand-green transition-colors duration-500">
+                                <span
+                                    class="material-symbols-outlined text-6xl text-brand-green group-hover:text-white transition-colors duration-500">diversity_3</span>
+                            </div>
+                            <div class="w-full md:w-3/4 p-8 md:p-12">
+                                <h3 class="font-heading text-2xl font-bold text-brand-green mb-4">Peacebuilding & Social
+                                    Cohesion</h3>
+                                <p class="text-gray-600 text-lg mb-8 leading-relaxed">Fostering dialogue and conflict
+                                    resolution to build integrated, peaceful societies resilient to external pressures.
+                                </p>
+                                <a href="peacebuilding.html"
+                                    class="inline-flex items-center gap-2 text-brand-teal font-bold hover:gap-4 transition-all group-hover:text-brand-green">
+                                    Learn More
+                                    <span class="material-symbols-outlined">east</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GBV Prevention -->
+                    <div
+                        class="bg-white rounded-3xl border border-gray-100 hover:border-brand-teal transition-all duration-500 overflow-hidden group">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div
+                                class="w-full md:w-1/4 bg-brand-green/5 p-12 flex items-center justify-center group-hover:bg-brand-green transition-colors duration-500">
+                                <span
+                                    class="material-symbols-outlined text-6xl text-brand-green group-hover:text-white transition-colors duration-500">shield_person</span>
+                            </div>
+                            <div class="w-full md:w-3/4 p-8 md:p-12">
+                                <h3 class="font-heading text-2xl font-bold text-brand-green mb-4">GBV Prevention &
+                                    Protection</h3>
+                                <p class="text-gray-600 text-lg mb-8 leading-relaxed">Advocating for the rights and
+                                    safety of women and girls, while supporting survivors through comprehensive
+                                    protection frameworks.</p>
+                                <a href="gbv-prevention.html"
+                                    class="inline-flex items-center gap-2 text-brand-teal font-bold hover:gap-4 transition-all group-hover:text-brand-green">
+                                    Learn More
+                                    <span class="material-symbols-outlined">east</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advocacy -->
+                    <div
+                        class="bg-white rounded-3xl border border-gray-100 hover:border-brand-teal transition-all duration-500 overflow-hidden group">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div
+                                class="w-full md:w-1/4 bg-brand-green/5 p-12 flex items-center justify-center group-hover:bg-brand-green transition-colors duration-500">
+                                <span
+                                    class="material-symbols-outlined text-6xl text-brand-green group-hover:text-white transition-colors duration-500">campaign</span>
+                            </div>
+                            <div class="w-full md:w-3/4 p-8 md:p-12">
+                                <h3 class="font-heading text-2xl font-bold text-brand-green mb-4">Research, Advocacy, &
+                                    Partnerships</h3>
+                                <p class="text-gray-600 text-lg mb-8 leading-relaxed">Influencing policy through
+                                    evidence-based research and building strategic alliances for large-scale systemic
+                                    impact.</p>
+                                <a href="research-advocacy.html"
+                                    class="inline-flex items-center gap-2 text-brand-teal font-bold hover:gap-4 transition-all group-hover:text-brand-green">
+                                    Learn More
+                                    <span class="material-symbols-outlined">east</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCORDION SECTION -->
+        <section class="py-24 bg-brand-white/50 border-t border-gray-100">
+            <div class="max-w-page mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-green mb-6">Our Approach &
+                        Methodology</h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Learn more about how we design and implement our
+                        programs for maximum community impact.</p>
+                </div>
+
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- Accordion Item 1 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                        <button onclick="toggleAccordion(1)"
+                            class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-bold text-brand-green text-lg">Community-Led Design</span>
+                            <span id="icon-1"
+                                class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div id="content-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100 mt-4">
+                                We believe that those closest to the challenges are best equipped to identify solutions.
+                                Every program begins with extensive community consultation to ensure our interventions
+                                are culturally appropriate and truly meet local needs.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 2 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                        <button onclick="toggleAccordion(2)"
+                            class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-bold text-brand-green text-lg">Evidence-Based Implementation</span>
+                            <span id="icon-2"
+                                class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div id="content-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100 mt-4">
+                                Our projects are guided by data and international best practices. We conduct rigorous
+                                baseline assessments and maintain a continuous monitoring and evaluation framework to
+                                track impact and adapt to changing conditions.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 3 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                        <button onclick="toggleAccordion(3)"
+                            class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-bold text-brand-green text-lg">Sustainability & Ownership</span>
+                            <span id="icon-3"
+                                class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div id="content-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100 mt-4">
+                                We don't just 'drop' solutions; we build capacity. Our goal is to ensure that community
+                                members have the skills and resources to manage and sustain initiatives long after our
+                                direct involvement concludes.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 4 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                        <button onclick="toggleAccordion(4)"
+                            class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-bold text-brand-green text-lg">Cross-Sector Integration</span>
+                            <span id="icon-4"
+                                class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div id="content-4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100 mt-4">
+                                Environmental challenges do not exist in a vacuum. We integrate peacebuilding into
+                                climate action and WASH into agriculture, recognizing that a holistic approach is
+                                required for truly resilient development.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="py-24 bg-brand-green text-white">
+            <div class="max-w-page mx-auto px-4 text-center">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-8">Ready to make an impact?</h2>
+                <p class="text-xl text-brand-white/90 mb-12 max-w-2xl mx-auto">Support our programs or partner with us
+                    to scale our reach and deepen our community impact.</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="partnerships.html"
+                        class="bg-brand-teal text-white px-10 py-4 rounded-md font-bold hover:bg-white hover:text-brand-green border border-brand-teal hover:border-brand-teal transition-all duration-300">Partner
+                        With Us</a>
+                    <a href="donate.html"
+                        class="bg-white text-brand-green px-10 py-4 rounded-md font-bold hover:bg-brand-teal hover:text-white border border-gray-100 hover:border-brand-teal transition-all duration-300">Support
+                        a Program</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-gray-400 py-20 px-6 border-t border-white/5">
+        <div class="max-w-page mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 mb-16">
+                <!-- Col 1 -->
+                <div>
+                    <div class="mb-6">
+                        <img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto brightness-0 invert" loading="lazy">
+                    </div>
+                    <p class="text-sm leading-relaxed mb-8">Climate Earth Environmental Conservation Foundation is
+                        dedicated to promoting environmental sustainability and community resilience through innovative
+                        solutions.</p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-brand-teal hover:text-white transition-all"><span
+                                class="material-symbols-outlined">share</span></a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-brand-teal hover:text-white transition-all"><span
+                                class="material-symbols-outlined">public</span></a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-brand-teal hover:text-white transition-all"><span
+                                class="material-symbols-outlined">language</span></a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h5 class="text-white font-bold mb-6">Quick Links</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="about.html" class="hover:text-brand-teal transition-colors">About Us</a></li>
+                        <li><a href="programs.html" class="hover:text-brand-teal transition-colors">Our
+                                Programs</a></li>
+                        <li><a href="index.html#projects" class="hover:text-brand-teal transition-colors">Projects &
+                                Impact</a></li>
+                        <li><a href="partnerships.html" class="hover:text-brand-teal transition-colors">Get Involved</a>
+                        </li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScFKUdCOEXU8L5MMJ7wQbDWcFSUoFHUpvnRXKOflYVs7xMfnQ/viewform?usp=publish-editor"
+                                target="_blank" class="hover:text-brand-teal transition-colors">Volunteer With Us</a>
+                        </li>
+                        <li><a href="#" class="hover:text-brand-teal transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h5 class="text-white font-bold mb-6">Programs</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="environmental-education.html"
+                                class="hover:text-brand-teal transition-colors">Environmental Education</a></li>
+                        <li><a href="climate-action.html" class="hover:text-brand-teal transition-colors">Climate
+                                Action</a></li>
+                        <li><a href="agriculture-food-security.html"
+                                class="hover:text-brand-teal transition-colors">Regenerative Agriculture</a></li>
+                        <li><a href="peacebuilding.html"
+                                class="hover:text-brand-teal transition-colors">Peacebuilding</a></li>
+                        <li><a href="wash.html" class="hover:text-brand-teal transition-colors">WASH Initiatives</a>
+                        </li>
+                        <li><a href="gbv-prevention.html" class="hover:text-brand-teal transition-colors">Gender
+                                Protection</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p>&copy; 2026 CEEECF. All Rights Reserved. Empowering communities for a sustainable future.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE MENU SCRIPT -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        function toggleMenu(isOpen) {
+            if (isOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                menuOverlay.classList.remove('hidden');
+                setTimeout(() => menuOverlay.classList.add('opacity-100'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                menuOverlay.classList.remove('opacity-100');
+                setTimeout(() => {
+                    menuOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+        }
+
+        if (menuBtn && closeBtn && mobileMenu && menuOverlay) {
+            menuBtn.addEventListener('click', () => toggleMenu(true));
+            closeBtn.addEventListener('click', () => toggleMenu(false));
+            menuOverlay.addEventListener('click', () => toggleMenu(false));
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+        }
+
+        // Accordion Logic
+        function toggleAccordion(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            const allContents = document.querySelectorAll('[id^="content-"]');
+            const allIcons = document.querySelectorAll('[id^="icon-"]');
+
+            // Close others
+            allContents.forEach((c, idx) => {
+                if (idx + 1 !== id) {
+                    c.style.maxHeight = null;
+                    allIcons[idx].style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Toggle current
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+
+</html>

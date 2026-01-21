@@ -71,29 +71,26 @@
 
 <body class="bg-brand-white text-gray-900 font-sans leading-relaxed">
 
-    <!-- HEADER -->
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
-        <nav class="max-w-page mx-auto px-6 h-20 flex items-center justify-between">
+        <nav class="max-w-page mx-auto px-4 h-20 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <a href="index.html"><img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto" loading="lazy"></a>
             </div>
             <div class="hidden lg:flex items-center gap-8">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link text-brand-teal after:w-full">About</a>
-                <a href="index.html#programs" class="nav-link">Programs</a>
+                <a href="programs.html" class="nav-link">Programs</a>
                 <a href="index.html#projects" class="nav-link">Projects & Impact</a>
+                <a href="partnerships.html" class="nav-link">Partner With Us</a>
             </div>
             <div class="flex items-center gap-6">
-                <a href="partnerships.html"
-                    class="hidden sm:block text-brand-green font-medium hover:text-brand-teal transition-colors">Partner
-                    With Us</a>
-                <a href="donate.html" class="btn-primary py-2 px-6">Donate</a>
+                <a href="donate.html" class="btn-primary">Donate</a>
+                <!-- Mobile Menu Toggle -->
                 <button id="menu-btn" class="lg:hidden text-brand-green flex items-center">
                     <span class="material-symbols-outlined text-3xl">menu</span>
                 </button>
             </div>
         </nav>
-
         <!-- Mobile Menu Overlay -->
         <div id="menu-overlay"
             class="fixed inset-0 bg-brand-dark/40 backdrop-blur-sm z-[55] hidden lg:hidden transition-opacity duration-300 opacity-0">
@@ -101,24 +98,27 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu"
-            class="fixed top-0 right-0 w-[80%] max-w-sm h-full bg-brand-green z-[60] flex flex-col p-8 transition-transform duration-500 translate-x-full lg:hidden shadow-2xl">
-            <div class="flex justify-between items-center mb-12">
+            class="fixed top-0 right-0 w-[85%] max-w-sm h-screen bg-gradient-to-b from-[#11382E] to-[#0A261F] z-[60] flex flex-col p-8 transition-transform duration-500 translate-x-full lg:hidden shadow-2xl overflow-y-auto">
+            <div class="flex justify-between items-center mb-16">
                 <img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto brightness-0 invert" loading="lazy">
-                <button id="close-menu" class="text-white">
+                <button id="close-menu" class="text-white hover:rotate-90 transition-transform duration-300">
                     <span class="material-symbols-outlined text-4xl">close</span>
                 </button>
             </div>
-            <div class="flex flex-col gap-8 text-2xl font-bold text-white relative z-10">
+            <div class="flex flex-col gap-8 text-2xl font-bold text-white relative z-10 font-heading">
                 <a href="index.html" class="hover:text-brand-teal transition-colors">Home</a>
-                <a href="about.html" class="hover:text-brand-teal transition-colors">About</a>
-                <a href="index.html#programs" class="hover:text-brand-teal transition-colors">Programs</a>
+                <a href="about.html" class="text-brand-teal transition-colors">About</a>
+                <a href="programs.html" class="hover:text-brand-teal transition-colors">Programs</a>
                 <a href="index.html#projects" class="hover:text-brand-teal transition-colors">Projects & Impact</a>
                 <a href="partnerships.html" class="hover:text-brand-teal transition-colors">Partner With Us</a>
+
                 <a href="donate.html"
-                    class="inline-block px-8 py-4 bg-brand-teal text-white rounded-md text-center mt-4">Donate Now</a>
+                    class="inline-block px-8 py-5 bg-brand-teal text-white rounded-xl text-center mt-4 text-xl font-black shadow-lg hover:shadow-brand-teal/20 transition-all active:scale-95">Donate
+                    Now</a>
             </div>
-            <div class="absolute bottom-0 right-0 opacity-10 pointer-events-none">
-                <span class="material-symbols-outlined text-[200px]">eco</span>
+            <!-- Decorative background element for menu -->
+            <div class="absolute bottom-10 right-10 opacity-5 pointer-events-none">
+                <span class="material-symbols-outlined text-[240px] text-white">eco</span>
             </div>
         </div>
     </header>
@@ -126,7 +126,7 @@
     <main>
         <!-- ABOUT HERO -->
         <section class="relative min-h-[60vh] flex items-center bg-brand-green text-white overflow-hidden">
-            <div class="max-w-page mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10 py-24">
+            <div class="max-w-page mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center relative z-10 py-24">
                 <div class="max-w-3xl">
                     <span
                         class="inline-block py-1 px-3 bg-brand-teal text-white text-xs font-bold tracking-widest uppercase rounded mb-6">Our
@@ -172,13 +172,13 @@
                         </div>
                     </div>
                     <div class="relative">
-                        <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-premium group">
+                        <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-gray-100 group">
                             <img src="who-we-are.png" alt="Organization Leadership and Advocacy"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 loading="lazy">
                         </div>
                         <div
-                            class="absolute -bottom-10 -left-10 bg-brand-teal text-white p-8 rounded-2xl shadow-2xl hidden md:block max-w-[280px]">
+                            class="absolute -bottom-10 -left-10 bg-brand-teal text-white p-8 rounded-2xl border border-brand-teal hidden md:block max-w-[280px]">
                             <p class="text-sm font-bold uppercase tracking-widest mb-2 opacity-80">Our Vision</p>
                             <p class="text-xl font-heading font-medium italic">"Leading the way toward community-driven
                                 environmental justice."</p>
@@ -213,8 +213,7 @@
                     <div id="leadership-carousel" class="flex gap-6 transition-transform duration-500 ease-in-out">
                         <!-- Leader 1 -->
                         <div class="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(25%-18px)] group">
-                            <div
-                                class="relative aspect-[3/4] rounded-3xl overflow-hidden mb-6 shadow-md shadow-brand-green/10">
+                            <div class="relative aspect-[3/4] rounded-3xl overflow-hidden mb-6 border border-gray-100">
                                 <img src="andrew-ezra.jpg" alt="Andrew Ezra - Executive Director"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                                 <div
@@ -228,8 +227,7 @@
 
                         <!-- Leader 2 -->
                         <div class="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(25%-18px)] group">
-                            <div
-                                class="relative aspect-[3/4] rounded-3xl overflow-hidden mb-6 shadow-md shadow-brand-green/10">
+                            <div class="relative aspect-[3/4] rounded-3xl overflow-hidden mb-6 border border-gray-100">
                                 <img src="keegan-elkanah.jpg" alt="Keegan Elkanah - Ecological Restoration Lead"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                                 <div
@@ -243,8 +241,7 @@
 
                         <!-- Leader 3 -->
                         <div class="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(25%-18px)] group">
-                            <div
-                                class="relative aspect-[3/4] rounded-3xl overflow-hidden mb-6 shadow-md shadow-brand-green/10">
+                            <div class="relative aspect-[3/4] rounded-3xl overflow-hidden mb-6 border border-gray-100">
                                 <img src="yauto-mallum.jpg" alt="Yauto Mallum - Program Manager"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                                 <div
@@ -258,8 +255,7 @@
 
                         <!-- Leader 4 -->
                         <div class="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(25%-18px)] group">
-                            <div
-                                class="relative aspect-[3/4] rounded-3xl overflow-hidden mb-6 shadow-md shadow-brand-green/10">
+                            <div class="relative aspect-[3/4] rounded-3xl overflow-hidden mb-6 border border-gray-100">
                                 <img src="joshua-jiddah.jpg" alt="Joshua Boijam Jiddah - Stakeholder Engagement Lead"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                                 <div
@@ -311,7 +307,8 @@
         <!-- PARTNERSHIP & GOALS SECTION -->
         <section class="py-24 bg-white">
             <div class="max-w-page mx-auto px-6">
-                <div class="bg-brand-green rounded-[40px] p-12 md:p-20 text-white relative overflow-hidden shadow-2xl">
+                <div
+                    class="bg-brand-green rounded-[40px] p-12 md:p-20 text-white relative overflow-hidden border border-white/10">
                     <div class="absolute inset-0 bg-gradient-to-br from-brand-teal/20 to-transparent"></div>
                     <div class="relative z-10 max-w-4xl">
                         <h2 class="font-heading text-4xl font-bold mb-8">Collaborating for Long-Term Impact</h2>
@@ -337,7 +334,7 @@
     <!-- FOOTER -->
     <footer class="bg-brand-dark text-gray-400 py-20 px-6 border-t border-white/5">
         <div class="max-w-page mx-auto">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
+            <div class="grid md:grid-cols-3 gap-12 mb-16">
                 <!-- Col 1 -->
                 <div>
                     <div class="mb-6">
@@ -364,14 +361,16 @@
                     <h5 class="text-white font-bold mb-6">Quick Links</h5>
                     <ul class="space-y-4 text-sm">
                         <li><a href="about.html" class="hover:text-brand-teal transition-colors">About Us</a></li>
-                        <li><a href="index.html#programs" class="hover:text-brand-teal transition-colors">Our
+                        <li><a href="programs.html" class="hover:text-brand-teal transition-colors">Our
                                 Programs</a></li>
                         <li><a href="index.html#projects" class="hover:text-brand-teal transition-colors">Projects &
                                 Impact</a></li>
-                        <li><a href="research-advocacy.html" class="hover:text-brand-teal transition-colors">Research &
-                                Advocacy</a></li>
                         <li><a href="partnerships.html" class="hover:text-brand-teal transition-colors">Get Involved</a>
                         </li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScFKUdCOEXU8L5MMJ7wQbDWcFSUoFHUpvnRXKOflYVs7xMfnQ/viewform?usp=publish-editor"
+                                target="_blank" class="hover:text-brand-teal transition-colors">Volunteer With Us</a>
+                        </li>
+                        <li><a href="#" class="hover:text-brand-teal transition-colors">Careers</a></li>
                     </ul>
                 </div>
 
@@ -392,18 +391,6 @@
                         <li><a href="gbv-prevention.html" class="hover:text-brand-teal transition-colors">Gender
                                 Protection</a></li>
                     </ul>
-                </div>
-
-                <!-- Col 4 -->
-                <div>
-                    <h5 class="text-white font-bold mb-6">Newsletter</h5>
-                    <p class="text-sm mb-6">Stay updated with our latest field reports and climate action insights.</p>
-                    <form class="flex gap-2">
-                        <input type="email" placeholder="Your email"
-                            class="bg-white/5 border border-white/10 rounded-md px-4 py-2 text-sm w-full focus:border-brand-teal outline-none transition-colors">
-                        <button
-                            class="bg-brand-teal text-white px-4 py-2 rounded-md font-bold hover:bg-opacity-90">Join</button>
-                    </form>
                 </div>
             </div>
 
@@ -441,11 +428,13 @@
             }
         }
 
-        if (menuBtn && closeBtn) {
+        if (menuBtn && closeBtn && mobileMenu && menuOverlay) {
             menuBtn.addEventListener('click', () => toggleMenu(true));
             closeBtn.addEventListener('click', () => toggleMenu(false));
             menuOverlay.addEventListener('click', () => toggleMenu(false));
-            mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
         }
 
         // Leadership Carousel Logic
@@ -454,51 +443,39 @@
         const nextBtn = document.getElementById('next-btn');
 
         if (carousel && prevBtn && nextBtn) {
-            let currentIndex = 0;
-            const cardCount = carousel.children.length;
-
-            function getVisibleCards() {
-                if (window.innerWidth >= 1024) return 4;
-                if (window.innerWidth >= 640) return 2;
-                return 1;
-            }
-
-            function updateCarousel() {
-                const visibleCards = getVisibleCards();
-                const maxIndex = Math.max(0, cardCount - visibleCards);
-                if (currentIndex > maxIndex) currentIndex = maxIndex;
-
-                const gap = 24; // gap-6
-                const cardWidth = (carousel.offsetWidth - (visibleCards - 1) * gap) / visibleCards;
-                const offset = currentIndex * (cardWidth + gap);
-
-                carousel.style.transform = `translateX(-${offset}px)`;
-
-                // Update button visibility/state
-                prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
-                prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
-                nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
-                nextBtn.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
-            }
+            let scrollAmount = 0;
+            const step = carousel.children[0].offsetWidth + 24; // Item width + gap
+            const maxScroll = carousel.scrollWidth - carousel.parentElement.offsetWidth;
 
             nextBtn.addEventListener('click', () => {
-                const visibleCards = getVisibleCards();
-                if (currentIndex < cardCount - visibleCards) {
-                    currentIndex++;
-                    updateCarousel();
+                if (scrollAmount < maxScroll) {
+                    scrollAmount += step;
+                    if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+                    carousel.style.transform = `translateX(-${scrollAmount}px)`;
+                } else {
+                    // Loop back to start
+                    scrollAmount = 0;
+                    carousel.style.transform = `translateX(0)`;
                 }
             });
 
             prevBtn.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateCarousel();
+                if (scrollAmount > 0) {
+                    scrollAmount -= step;
+                    if (scrollAmount < 0) scrollAmount = 0;
+                    carousel.style.transform = `translateX(-${scrollAmount}px)`;
+                } else {
+                    // Go to end
+                    scrollAmount = maxScroll;
+                    carousel.style.transform = `translateX(-${scrollAmount}px)`;
                 }
             });
 
-            window.addEventListener('resize', updateCarousel);
-            // Initial call
-            setTimeout(updateCarousel, 100);
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                scrollAmount = 0;
+                carousel.style.transform = `translateX(0)`;
+            });
         }
     </script>
 </body>
