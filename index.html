@@ -93,7 +93,7 @@
                 <a href="index.html" class="nav-link text-brand-teal after:w-full">Home</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="programs.html" class="nav-link">Programs</a>
-                <a href="index.html#projects" class="nav-link">Projects & Impact</a>
+                <a href="gallery.html" class="nav-link">Projects &amp; Impact</a>
                 <a href="partnerships.html" class="nav-link">Partner With Us</a>
             </div>
 
@@ -124,7 +124,8 @@
                 <a href="index.html" class="text-brand-teal transition-colors">Home</a>
                 <a href="about.html" class="hover:text-brand-teal transition-colors">About</a>
                 <a href="programs.html" class="hover:text-brand-teal transition-colors">Programs</a>
-                <a href="index.html#projects" class="hover:text-brand-teal transition-colors">Projects & Impact</a>
+                <a href="gallery.html" class="hover:text-brand-teal transition-colors">Projects &amp; Impact
+                </a>
                 <a href="partnerships.html" class="hover:text-brand-teal transition-colors">Partner With Us</a>
 
                 <a href="donate.html"
@@ -419,105 +420,166 @@
             </div>
         </section>
 
-        <!-- FEATURED PROJECTS SECTION -->
-        <section id="projects" class="py-24">
+        <!-- PROJECT GALLERY SECTION -->
+        <section id="projects" class="py-32 bg-brand-white">
             <div class="max-w-page mx-auto px-6">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                    <div class="max-w-xl">
-                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-green mb-4">Featured Projects
-                        </h2>
-                        <p class="text-gray-600">Community-led climate adaptation initiatives addressing environmental
-                            risks, food security, and social cohesion across vulnerable regions.</p>
+                <div
+                    class="border-b border-gray-300 pb-8 mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
+                    <div class="max-w-2xl">
+                        <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-green mb-4 tracking-tight">
+                            Project Gallery</h2>
+                        <p class="text-gray-600 border-l-2 border-brand-teal pl-4 ml-1">Systematic approaches to
+                            environmental, infrastructural, and social challenges across operational regions.</p>
                     </div>
-                    <a href="#" class="btn-secondary whitespace-nowrap">View All Projects</a>
+                    <a href="gallery.html"
+                        class="px-8 py-4 border-2 border-brand-green text-brand-green font-bold text-sm tracking-widest uppercase hover:bg-brand-green hover:text-white transition-all duration-300 whitespace-nowrap">View
+                        All Studies</a>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Project Card 1: YEDC Protest -->
-                    <div onclick="window.open('https://web.facebook.com/share/p/1Aa4rgP62m/', '_blank')"
-                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group transition-all duration-500 hover:shadow-2xl cursor-pointer">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="yedc-protest.jpg" alt="YEDC Protest"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                loading="lazy">
-                            <div
-                                class="absolute top-4 left-4 flex items-center gap-2 bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm">
-                                <span class="material-symbols-outlined text-sm">location_on</span>
-                                Jimeta, Nigeria
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <div class="text-brand-teal text-xs font-bold uppercase tracking-widest mb-2">Nov 24, 2025
-                            </div>
-                            <h4 class="font-heading font-bold text-xl text-brand-green mb-3">Community Demand for Better
-                                Power</h4>
-                            <p class="text-gray-600 mb-6 line-clamp-3">Residents of Numan, Girei, and Yola united at the
-                                YEDC gate to demand an end to estimated billing and urgent infrastructure repairs.</p>
-                            <a href="https://web.facebook.com/share/p/1Aa4rgP62m/" target="_blank"
-                                class="inline-flex items-center gap-2 text-brand-teal font-bold hover:gap-3 transition-all">
-                                Read Full Story
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
-                            </a>
-                        </div>
-                    </div>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-l border-t border-gray-200 shadow-sm">
 
-                    <!-- Project Card 2: Wuro Chekke Community Meeting -->
-                    <div onclick="window.open('https://web.facebook.com/share/p/1ASe2MN456/', '_blank')"
-                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group transition-all duration-500 hover:shadow-2xl cursor-pointer">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="wuro-chekke-meeting.jpg" alt="Wuro Chekke Community Meeting"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    <!-- Case Study: YEDC -->
+                    <a href="project-yedc.html"
+                        class="block group bg-white border-r border-b border-gray-200 relative overflow-hidden flex flex-col h-full hover:bg-gray-50/50 transition-colors">
+                        <div class="relative aspect-[4/3] overflow-hidden border-b border-gray-200 bg-gray-100">
+                            <img src="yedc-protest.jpg" alt="Energy Infrastructure"
+                                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                                 loading="lazy">
                             <div
-                                class="absolute top-4 left-4 flex items-center gap-2 bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm">
-                                <span class="material-symbols-outlined text-sm">location_on</span>
-                                Yola South, Adamawa
+                                class="absolute inset-0 bg-brand-green/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                                <span
+                                    class="text-white font-heading font-semibold tracking-widest text-sm uppercase flex items-center gap-2">View
+                                    Case Study <span
+                                        class="material-symbols-outlined text-sm">arrow_outward</span></span>
                             </div>
                         </div>
-                        <div class="p-8">
-                            <div class="text-brand-teal text-xs font-bold uppercase tracking-widest mb-2">Community
-                                Engagement</div>
-                            <h4 class="font-heading font-bold text-xl text-brand-green mb-3">Wuro Chekke: Addressing
-                                Artificial Blackouts</h4>
-                            <p class="text-gray-600 mb-6 line-clamp-3">We met with the community to discuss electricity
-                                shortages. Residents shared how limited power impacts small businesses and daily life
-                                despite having meters.</p>
-                            <a href="https://web.facebook.com/share/p/1ASe2MN456/" target="_blank"
-                                class="inline-flex items-center gap-2 text-brand-teal font-bold hover:gap-3 transition-all">
-                                Read Full Story
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
-                            </a>
+                        <div class="p-8 sm:p-10 flex-grow flex flex-col">
+                            <div class="flex justify-between items-center mb-6">
+                                <span
+                                    class="text-brand-teal text-xs font-bold uppercase tracking-widest border border-brand-teal/20 bg-brand-teal/5 px-2.5 py-1">Infrastructure</span>
+                            </div>
+                            <h3
+                                class="font-heading font-bold text-2xl text-brand-green mb-8 leading-snug group-hover:text-brand-teal transition-colors duration-300">
+                                Energy Transparency Initialization</h3>
+                            <div
+                                class="space-y-5 text-sm text-gray-600 flex-grow font-sans border-t border-gray-100 pt-8 mt-auto">
+                                <div class="grid grid-cols-[80px_1fr] gap-3 items-start">
+                                    <span
+                                        class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">Problem</span>
+                                    <span class="leading-relaxed">Systematic estimated billing and degraded power
+                                        infrastructure impacted regional economic stability.</span>
+                                </div>
+                                <div class="grid grid-cols-[80px_1fr] gap-3 items-start">
+                                    <span
+                                        class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">Approach</span>
+                                    <span class="leading-relaxed">Coordinated analytical demands at utility headquarters
+                                        for immediate transparency and metered distribution.</span>
+                                </div>
+                                <div class="grid grid-cols-[80px_1fr] gap-3 items-start">
+                                    <span
+                                        class="text-[11px] font-bold uppercase text-brand-teal tracking-wider">Outcome</span>
+                                    <span class="leading-relaxed font-medium text-gray-900">Formal commitments secured
+                                        for immediate network repairs and transitional metering.</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
 
-                    <!-- Project Card 3: MOVE Platform Youth Advocacy -->
-                    <div onclick="window.open('https://web.facebook.com/share/p/1ASe2MN456/', '_blank')"
-                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group transition-all duration-500 hover:shadow-2xl cursor-pointer">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="youth-unite-move.jpg" alt="Youth Groups Unite"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    <!-- Case Study: Wuro Chekke -->
+                    <a href="project-yedc.html"
+                        class="block group bg-white border-r border-b border-gray-200 relative overflow-hidden flex flex-col h-full hover:bg-gray-50/50 transition-colors">
+                        <div class="relative aspect-[4/3] overflow-hidden border-b border-gray-200 bg-gray-100">
+                            <img src="wuro-chekke-meeting.jpg" alt="Community Evaluation"
+                                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                                 loading="lazy">
                             <div
-                                class="absolute top-4 left-4 flex items-center gap-2 bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm">
-                                <span class="material-symbols-outlined text-sm">group</span>
-                                National Movement
+                                class="absolute inset-0 bg-brand-green/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                                <span
+                                    class="text-white font-heading font-semibold tracking-widest text-sm uppercase flex items-center gap-2">View
+                                    Case Study <span
+                                        class="material-symbols-outlined text-sm">arrow_outward</span></span>
                             </div>
                         </div>
-                        <div class="p-8">
-                            <div class="text-brand-teal text-xs font-bold uppercase tracking-widest mb-2">Youth Advocacy
+                        <div class="p-8 sm:p-10 flex-grow flex flex-col">
+                            <div class="flex justify-between items-center mb-6">
+                                <span
+                                    class="text-brand-teal text-xs font-bold uppercase tracking-widest border border-brand-teal/20 bg-brand-teal/5 px-2.5 py-1">Community</span>
                             </div>
-                            <h4 class="font-heading font-bold text-xl text-brand-green mb-3">Youth Groups Unite: MOVE
-                                Platform</h4>
-                            <p class="text-gray-600 mb-6 line-clamp-3">ActionAid Nigeria's MOVE platform united youth
-                                groups like Earth Warriors to share stories and tackle social challenges through
-                                collective action.</p>
-                            <a href="https://web.facebook.com/share/p/1ASe2MN456/" target="_blank"
-                                class="inline-flex items-center gap-2 text-brand-teal font-bold hover:gap-3 transition-all">
-                                Read Full Story
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
-                            </a>
+                            <h3
+                                class="font-heading font-bold text-2xl text-brand-green mb-8 leading-snug group-hover:text-brand-teal transition-colors duration-300">
+                                Wuro Chekke Grid Analysis</h3>
+                            <div
+                                class="space-y-5 text-sm text-gray-600 flex-grow font-sans border-t border-gray-100 pt-8 mt-auto">
+                                <div class="grid grid-cols-[80px_1fr] gap-3 items-start">
+                                    <span
+                                        class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">Problem</span>
+                                    <span class="leading-relaxed">Artificial grid blackouts severely restricted daily
+                                        operations for fully metered residents and micro-businesses.</span>
+                                </div>
+                                <div class="grid grid-cols-[80px_1fr] gap-3 items-start">
+                                    <span
+                                        class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">Approach</span>
+                                    <span class="leading-relaxed">Structured participatory assessment to document the
+                                        empirical economic impact.</span>
+                                </div>
+                                <div class="grid grid-cols-[80px_1fr] gap-3 items-start">
+                                    <span
+                                        class="text-[11px] font-bold uppercase text-brand-teal tracking-wider">Outcome</span>
+                                    <span class="leading-relaxed font-medium text-gray-900">Data-driven framework
+                                        established to negotiate equitable distribution schedules.</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+
+                    <!-- Case Study: MOVE Platform -->
+                    <a href="project-yedc.html"
+                        class="block group bg-white border-r border-b border-gray-200 relative overflow-hidden flex flex-col h-full hover:bg-gray-50/50 transition-colors">
+                        <div class="relative aspect-[4/3] overflow-hidden border-b border-gray-200 bg-gray-100">
+                            <img src="youth-unite-move.jpg" alt="MOVE Platform"
+                                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                                loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-brand-green/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                                <span
+                                    class="text-white font-heading font-semibold tracking-widest text-sm uppercase flex items-center gap-2">View
+                                    Case Study <span
+                                        class="material-symbols-outlined text-sm">arrow_outward</span></span>
+                            </div>
+                        </div>
+                        <div class="p-8 sm:p-10 flex-grow flex flex-col">
+                            <div class="flex justify-between items-center mb-6">
+                                <span
+                                    class="text-brand-teal text-xs font-bold uppercase tracking-widest border border-brand-teal/20 bg-brand-teal/5 px-2.5 py-1">Advocacy</span>
+                            </div>
+                            <h3
+                                class="font-heading font-bold text-2xl text-brand-green mb-8 leading-snug group-hover:text-brand-teal transition-colors duration-300">
+                                MOVE Structural Coalition</h3>
+                            <div
+                                class="space-y-5 text-sm text-gray-600 flex-grow font-sans border-t border-gray-100 pt-8 mt-auto">
+                                <div class="grid grid-cols-[80px_1fr] gap-3 items-start">
+                                    <span
+                                        class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">Problem</span>
+                                    <span class="leading-relaxed">Fragmented organizational resources limited the scale
+                                        of youth-led systemic interventions.</span>
+                                </div>
+                                <div class="grid grid-cols-[80px_1fr] gap-3 items-start">
+                                    <span
+                                        class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">Approach</span>
+                                    <span class="leading-relaxed">Integrated disjointed youth associations into
+                                        ActionAid's cohesive network for resource centralization.</span>
+                                </div>
+                                <div class="grid grid-cols-[80px_1fr] gap-3 items-start">
+                                    <span
+                                        class="text-[11px] font-bold uppercase text-brand-teal tracking-wider">Outcome</span>
+                                    <span class="leading-relaxed font-medium text-gray-900">Unified operational matrix
+                                        established for deploying synchronized advocacy.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
                 </div>
             </div>
         </section>
