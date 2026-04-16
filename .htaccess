@@ -1,0 +1,23 @@
+Options -Indexes
+RewriteEngine On
+
+# ── 1. Force HTTPS ──────────────────────────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# ── 2. Redirect /index.html → /home ─────────────────────────────────────────
+RewriteRule ^index\.html$ /home [R=301,L]
+
+# ── 3. Redirect any other .html URLs to clean versions ───────────────────────
+# e.g. /about.html → /about
+RewriteRule ^([^/]+)\.html$ /$1 [R=301,L]
+
+# ── 4. Serve /home as index.html ─────────────────────────────────────────────
+RewriteRule ^home/?$ index.html [L]
+
+# ── 5. Serve clean URLs by appending .html internally ────────────────────────
+# Only if the path isn't a real file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
