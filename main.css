@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Buttons */
+    .btn-primary {
+        @apply bg-brand-green text-white px-8 py-4 rounded-md font-bold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95;
+    }
+    
+    .btn-secondary {
+        @apply border-2 border-brand-green text-brand-green px-6 py-3 rounded-md font-medium hover:bg-brand-green hover:text-white transition-all duration-300 active:scale-95;
+    }
+
+    /* Navigation */
+    .nav-link {
+        @apply text-brand-green font-medium hover:text-brand-teal transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-teal after:transition-all hover:after:w-full;
+    }
+
+    /* Cards & Layout */
+    .glass-card {
+        @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-premium;
+    }
+
+    .section-glow {
+        @apply absolute top-0 left-0 w-full h-full pointer-events-none;
+        background: radial-gradient(circle at 50% 0%, rgba(27, 77, 62, 0.05) 0%, transparent 70%);
+    }
+
+    /* Specialized Components */
+    .btn-tier {
+        @apply border-2 border-gray-100 p-6 rounded-xl text-center transition-all cursor-pointer hover:border-brand-teal hover:bg-brand-white;
+    }
+    
+    .btn-tier.active {
+        @apply border-brand-teal bg-brand-teal/5 ring-2 ring-brand-teal ring-opacity-20;
+    }
+}

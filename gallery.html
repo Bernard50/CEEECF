@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery — CEEECF | Field Work & Activities</title>
+    <meta name="description"
+        content="Explore CEEECF's field work gallery. Visual documentation of our ongoing activities in climate action, WASH, peacebuilding, and agriculture.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#1B4D3E',
+                            brown: '#5D4037',
+                            white: '#F9FBF9',
+                            teal: '#008080',
+                            beige: '#F5F5DC',
+                            dark: '#0A1A15',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    maxWidth: {
+                        'page': '1320px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply bg-brand-green text-white px-8 py-4 font-bold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95;
+            }
+            .nav-link {
+                @apply text-brand-green font-medium hover:text-brand-teal transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-teal after:transition-all hover:after:w-full;
+            }
+        }
+    </style>
+
+    <style>
+        .photo-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -8px rgba(27, 77, 62, 0.12);
+        }
+
+        .photo-img-wrap img {
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .photo-card:hover .photo-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 26, 21, 0.97);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            flex-direction: column;
+        }
+
+        #lightbox.open {
+            display: flex;
+        }
+
+        #lightbox img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        #lightbox-caption {
+            margin-top: 1.5rem;
+            color: white;
+            text-align: center;
+            max-width: 800px;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-white text-gray-900 font-sans leading-relaxed selection:bg-brand-teal selection:text-white">
+
+    <!-- ══════════════════════════════════════════ HEADER ══════════════════ -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <nav class="max-w-page mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html"><img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto" loading="lazy"></a>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="programs.html" class="nav-link">Programs</a>
+                <a href="gallery.html" class="nav-link text-brand-teal after:w-full">Projects &amp; Impact</a>
+                <a href="partnerships.html" class="nav-link">Partner With Us</a>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="donate.html" class="btn-primary">Donate</a>
+                <button id="menu-btn" class="lg:hidden text-brand-green flex items-center">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu"
+            class="fixed top-0 right-0 w-[85%] max-w-sm h-screen bg-gradient-to-b from-[#11382E] to-[#0A261F] z-[60] flex flex-col p-8 transition-transform duration-500 translate-x-full lg:hidden shadow-2xl overflow-y-auto">
+            <div class="flex justify-between items-center mb-16">
+                <img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto brightness-0 invert" loading="lazy">
+                <button id="close-menu" class="text-white hover:rotate-90 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-4xl">close</span>
+                </button>
+            </div>
+            <div class="flex flex-col gap-8 text-2xl font-bold text-white relative z-10 font-heading">
+                <a href="index.html" class="hover:text-brand-teal transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-teal transition-colors">About</a>
+                <a href="programs.html" class="hover:text-brand-teal transition-colors">Programs</a>
+                <a href="gallery.html" class="text-brand-teal">Projects &amp; Impact</a>
+                <a href="partnerships.html" class="hover:text-brand-teal transition-colors">Partner With Us</a>
+                <a href="donate.html"
+                    class="inline-block px-8 py-5 bg-brand-teal text-white text-center mt-4 text-xl font-black shadow-lg transition-all active:scale-95">Donate
+                    Now</a>
+            </div>
+            <div class="absolute bottom-10 right-10 opacity-5 pointer-events-none">
+                <span class="material-symbols-outlined text-[240px] text-white">eco</span>
+            </div>
+        </div>
+        <div id="menu-overlay"
+            class="fixed inset-0 bg-brand-dark/40 backdrop-blur-sm z-[55] hidden transition-opacity duration-300 opacity-0">
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ══════════════════════════════════════════ HERO ══════════════════ -->
+        <section class="relative bg-brand-green text-white overflow-hidden">
+            <!-- Blueprint grid lines -->
+            <div class="absolute inset-0 opacity-[0.04] pointer-events-none"
+                style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px;">
+            </div>
+
+            <div class="max-w-page mx-auto px-6 py-24 md:py-32 relative z-10 text-center">
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <div class="w-8 h-px bg-brand-teal"></div>
+                    <span class="text-brand-teal text-xs font-bold uppercase tracking-[0.25em]">Visual
+                        Documentation</span>
+                    <div class="w-8 h-px bg-brand-teal"></div>
+                </div>
+                <h1 class="font-heading text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
+                    Field Gallery
+                </h1>
+                <p class="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-light">
+                    Directly from the frontlines. Highlighting our activities, community engagements, and impactful
+                    actions across various regions.
+                </p>
+            </div>
+
+            <div class="absolute bottom-0 left-0 w-full h-px bg-white/10"></div>
+        </section>
+
+        <!-- ════════════════════════════════════ SIMPLE GALLERY GRID ══════════════════ -->
+        <section class="py-24 bg-brand-white">
+            <div class="max-w-page mx-auto px-6">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- ANTI-HUNGER CAMPAIGN (Multi-image) -->
+                    <article class="photo-card bg-white border border-gray-200 cursor-pointer flex flex-col"
+                        onclick="openLightbox(this)">
+
+                        <!-- Hidden gallery queue -->
+                        <div class="hidden-gallery hidden">
+                            <div data-src="hunger-4.jpeg"
+                                data-caption="We organized a community-wide outreach to raise awareness and demand action against food insecurity. Volunteers and community members united, carrying posters demanding investment in smallholder farmers and food for all."
+                                data-title="Anti-Hunger Campaign Mobilization"></div>
+                            <div data-src="hunger-1.jpeg"
+                                data-caption="'Empty Plates, Empty Promises: End Hunger Now!' — Our team members hold up core advocacy messages emphasizing that basic nutrition is a right, not a profit mechanism."
+                                data-title="Advocacy Messaging"></div>
+                            <div data-src="hunger-2.jpeg"
+                                data-caption="Direct intervention: distributing essential food supplies to children and vulnerable families in the community under safe shade structures."
+                                data-title="On-Ground Distribution"></div>
+                            <div data-src="hunger-3.jpeg"
+                                data-caption="Engaging directly with mothers, community leaders, and youths to discuss local food security challenges and gather grassroots input for systemic solutions."
+                                data-title="Community Engagement"></div>
+                            <div data-src="hunger-5.jpeg"
+                                data-caption="Our outreach specifically targeted mothers and young children, who are most disproportionately affected by nutritional deficits and artificial food inflation."
+                                data-title="Supporting Vulnerable Families"></div>
+                        </div>
+
+                        <div
+                            class="photo-img-wrap relative aspect-[4/3] overflow-hidden bg-gray-100 border-b border-gray-100 group">
+                            <img src="hunger-4.jpeg" alt="Anti-Hunger Campaign Outreach"
+                                class="w-full h-full object-cover">
+
+                            <!-- Hover zoom icon -->
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 p-2 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="material-symbols-outlined text-brand-green">zoom_out_map</span>
+                            </div>
+
+                            <!-- Gallery badge -->
+                            <div
+                                class="absolute bottom-4 right-4 bg-brand-green/95 text-white backdrop-blur-sm px-3 py-1.5 shadow-sm flex items-center gap-1.5 z-10 transition-transform group-hover:scale-105">
+                                <span class="material-symbols-outlined text-[15px]">photo_library</span>
+                                <span class="text-[11px] font-bold uppercase tracking-widest text-white">5 Photos</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="font-heading font-bold text-xl text-brand-green name-title">Anti-Hunger &
+                                    Food Security Outreach</h3>
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-widest text-brand-teal bg-brand-teal/5 px-2 py-1">Community</span>
+                            </div>
+                            <div class="text-sm text-gray-600 leading-relaxed font-light description">
+                                A targeted community intervention combining immediate food supply distribution with
+                                structured advocacy. We mobilized residents to demand systemic support for smallholder
+                                farmers and immediate protective measures against child hunger and artificial food
+                                scarcity.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ROCHAS ECO CLUB (Multi-image) -->
+                    <article class="photo-card bg-white border border-gray-200 cursor-pointer flex flex-col"
+                        onclick="openLightbox(this)">
+
+                        <!-- Hidden gallery queue -->
+                        <div class="hidden-gallery hidden">
+                            <div data-src="rochas-4.jpeg"
+                                data-caption="We successfully expanded the Nigerian Earth Warriors initiative by inaugurating a new Eco-Club at the Rochas Foundation Secondary School. Students proudly displayed their Eco-Club Record Books and tree saplings."
+                                data-title="Rochas Foundation Eco-Club Launch"></div>
+                            <div data-src="rochas-1.jpeg"
+                                data-caption="Using interactive board games and visual educational tools, our team guided the students through the fundamentals of environmental stewardship, climate justice, and the #FundOurFuture campaign."
+                                data-title="Interactive Climate Education"></div>
+                            <div data-src="rochas-2.jpeg"
+                                data-caption="The team officially presented the Eco-Club banner to the new student members, establishing their formalized role as climate advocates within their school community."
+                                data-title="Official Banner Presentation"></div>
+                            <div data-src="rochas-3.jpeg"
+                                data-caption="Students lined up with the Eco-Club banner, representing a new generation of youth committed to environmental conservation and active participation in local climate solutions."
+                                data-title="Student Induction"></div>
+                            <div data-src="rochas-5.jpeg"
+                                data-caption="The inauguration concluded with practical action. We guided students through a campus tree-planting exercise, teaching them how to properly plant and secure protective tree guards for long-term growth."
+                                data-title="Campus Tree Planting Exercise"></div>
+                        </div>
+
+                        <div
+                            class="photo-img-wrap relative aspect-[4/3] overflow-hidden bg-gray-100 border-b border-gray-100 group">
+                            <img src="rochas-4.jpeg" alt="Rochas Foundation Eco-Club Launch"
+                                class="w-full h-full object-cover">
+
+                            <!-- Hover zoom icon -->
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 p-2 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="material-symbols-outlined text-brand-green">zoom_out_map</span>
+                            </div>
+
+                            <!-- Gallery badge -->
+                            <div
+                                class="absolute bottom-4 right-4 bg-brand-green/95 text-white backdrop-blur-sm px-3 py-1.5 shadow-sm flex items-center gap-1.5 z-10 transition-transform group-hover:scale-105">
+                                <span class="material-symbols-outlined text-[15px]">photo_library</span>
+                                <span class="text-[11px] font-bold uppercase tracking-widest text-white">5 Photos</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="font-heading font-bold text-xl text-brand-green name-title">Rochas Foundation
+                                    Eco-Club</h3>
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-widest text-brand-teal bg-brand-teal/5 px-2 py-1">Yola</span>
+                            </div>
+                            <div class="text-sm text-gray-600 leading-relaxed font-light description">
+                                Expanding the Nigerian Earth Warriors network, we launched an Eco-Club at Rochas
+                                Foundation Secondary School. The event featured interactive climate education using
+                                board games, an official induction, and a campus tree-planting exercise.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ECO CLUB PROJECT (Multi-image) -->
+                    <article class="photo-card bg-white border border-gray-200 cursor-pointer flex flex-col"
+                        onclick="openLightbox(this)">
+
+                        <!-- Hidden gallery queue -->
+                        <div class="hidden-gallery hidden">
+                            <div data-src="eco-club-4.jpeg"
+                                data-caption="In partnership with ActionAid and the Nigerian Earth Warriors, we successfully launched a new Eco-Club at the Remi Educational Foundation in Yola. This initiative serves to instill environmental stewardship and practical conservation skills in young students."
+                                data-title="School Eco-Club Launch"></div>
+                            <div data-src="eco-club-1.jpeg"
+                                data-caption="As part of the Eco-Club inauguration, students gathered around interactive environmental strategy boards. This hands-on approach simplifies complex climate concepts and encourages problem-solving at an early age."
+                                data-title="Interactive Climate Education"></div>
+                            <div data-src="eco-club-3.jpeg"
+                                data-caption="Empowering the next generation of climate leaders. Students took the environmental stewardship pledge during the Eco-Club inauguration session, affirming their commitment to protecting the local ecosystem."
+                                data-title="Student Induction Pledge"></div>
+                            <div data-src="eco-club-2.jpeg"
+                                data-caption="Successful climate education requires institutional support. Here, school administrators and teachers join the young Earth Warriors in committing to sustainable practices within the educational framework."
+                                data-title="Integrating the Faculty"></div>
+                            <div data-src="eco-club-5.jpeg"
+                                data-caption="Moving from theory to action: The inauguration concluded with a practical tree planting exercise on the school campus. Students were provided with tree guards and assigned individual saplings to care for throughout the academic year."
+                                data-title="Campus Tree Planting"></div>
+                        </div>
+
+                        <div
+                            class="photo-img-wrap relative aspect-[4/3] overflow-hidden bg-gray-100 border-b border-gray-100 group">
+                            <img src="eco-club-4.jpeg" alt="Creation of an Eco-Club at School"
+                                class="w-full h-full object-cover">
+
+                            <!-- Hover zoom icon -->
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 p-2 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="material-symbols-outlined text-brand-green">zoom_out_map</span>
+                            </div>
+
+                            <!-- Gallery badge -->
+                            <div
+                                class="absolute bottom-4 right-4 bg-brand-green/95 text-white backdrop-blur-sm px-3 py-1.5 shadow-sm flex items-center gap-1.5 z-10 transition-transform group-hover:scale-105">
+                                <span class="material-symbols-outlined text-[15px]">photo_library</span>
+                                <span class="text-[11px] font-bold uppercase tracking-widest text-white">5 Photos</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="font-heading font-bold text-xl text-brand-green name-title">School Eco-Club
+                                    Creation</h3>
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-widest text-brand-teal bg-brand-teal/5 px-2 py-1">Yola</span>
+                            </div>
+                            <div class="text-sm text-gray-600 leading-relaxed font-light description">
+                                In partnership with ActionAid and the Nigerian Earth Warriors, we successfully launched
+                                a new Eco-Club at the Remi Educational Foundation. The initiative included interactive
+                                climate education, student induction pledges, and a practical tree planting exercise to
+                                instill environmental stewardship.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CLIMATE WALK (Multi-image) -->
+                    <article class="photo-card bg-white border border-gray-200 cursor-pointer flex flex-col"
+                        onclick="openLightbox(this)">
+
+                        <!-- Hidden gallery queue -->
+                        <div class="hidden-gallery hidden">
+                            <div data-src="climate-walk-3.jpg"
+                                data-caption="As part of the Global Week of Climate Actions, we mobilized over 200 young people to march through Yola under the 'Young People for Climate Action Now' banner. The activity demanded climate finance accountability and a clear phase-out of fossil fuels."
+                                data-title="Climate Justice Walk Mobilization"></div>
+                            <div data-src="climate-walk-1.jpg"
+                                data-caption="Participants engaged local communities and distributed informational flyers highlighting the #PayUpForClimateJustice campaign. We highlighted the direct link between global carbon emissions and localized flooding."
+                                data-title="Global Platforms Network Integration"></div>
+                            <div data-src="climate-walk-2.jpg"
+                                data-caption="Youth advocates led the march holding strategic messaging, emphasizing the urgency to properly fund adaptation mechanisms for frontline communities experiencing loss and damage."
+                                data-title="Leading the March"></div>
+                            <div data-src="climate-walk-4.jpg"
+                                data-caption="The solidarity walk created immense grassroots visibility, demonstrating that local youth populations understand the systemic drivers of climate change and are ready to hold stakeholders accountable."
+                                data-title="Building Grassroots Visibility"></div>
+                            <div data-src="climate-walk-5.jpg"
+                                data-caption="Community leaders joined the youth organizers at the conclusion of the march to formalize their demands and plot continuous local engagement strategies."
+                                data-title="Community Demands"></div>
+                        </div>
+
+                        <div
+                            class="photo-img-wrap relative aspect-[4/3] overflow-hidden bg-gray-100 border-b border-gray-100 group">
+                            <img src="climate-walk-3.jpg" alt="Climate Justice Walk" class="w-full h-full object-cover">
+
+                            <!-- Hover zoom icon -->
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 p-2 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="material-symbols-outlined text-brand-green">zoom_out_map</span>
+                            </div>
+
+                            <!-- Gallery badge -->
+                            <div
+                                class="absolute bottom-4 right-4 bg-brand-green/95 text-white backdrop-blur-sm px-3 py-1.5 shadow-sm flex items-center gap-1.5 z-10 transition-transform group-hover:scale-105">
+                                <span class="material-symbols-outlined text-[15px]">photo_library</span>
+                                <span class="text-[11px] font-bold uppercase tracking-widest text-white">5 Photos</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="font-heading font-bold text-xl text-brand-green name-title">Climate Justice
+                                    Walk</h3>
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-widest text-brand-teal bg-brand-teal/5 px-2 py-1">Yola</span>
+                            </div>
+                            <div class="text-sm text-gray-600 leading-relaxed font-light description">
+                                As part of the Global Week of Climate Actions, we mobilized over 200 young people to
+                                march through Yola under the "Young People for Climate Action Now" banner. The
+                                solidarity walk demanded climate finance accountability and a clear phase-out of fossil
+                                fuels.
+                            </div>
+                        </div>
+                    </article>
+
+
+
+                    <!-- Agriculture -->
+                    <article class="photo-card bg-white border border-gray-200 cursor-pointer flex flex-col"
+                        onclick="openLightbox(this)">
+                        <div
+                            class="photo-img-wrap relative aspect-[4/3] overflow-hidden bg-gray-100 border-b border-gray-100 group">
+                            <img src="andrew-ezra.jpg" alt="Regenerative Agriculture Training"
+                                class="w-full h-full object-cover" data-full="andrew-ezra.jpg">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 p-2 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="material-symbols-outlined text-brand-green">zoom_in</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="font-heading font-bold text-xl text-brand-green name-title">Regenerative
+                                    Agriculture Session</h3>
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-widest text-brand-teal bg-brand-teal/5 px-2 py-1">Girei</span>
+                            </div>
+                            <div class="text-sm text-gray-600 leading-relaxed font-light description">
+                                A hands-on training module for local farmers facing top-soil depletion. We demonstrated
+                                rapid composting, crop rotation strategies, and conservation tillage techniques to
+                                restore soil health and improve long-term yield viability.
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox Element -->
+    <div id="lightbox" onclick="closeLightbox(event)">
+        <button onclick="closeLightbox(event)"
+            class="absolute top-6 right-6 text-white/60 hover:text-white transition-colors z-[10000]">
+            <span class="material-symbols-outlined text-4xl pointer-events-none">close</span>
+        </button>
+
+        <!-- Navigation Arrows (Multi-image) -->
+        <button id="lb-prev"
+            class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors z-[10000] p-3 md:p-5 bg-black/20 rounded-full hover:bg-black/60 hidden max-sm:scale-75"
+            onclick="navigateLightbox(-1); event.stopPropagation();">
+            <span class="material-symbols-outlined text-4xl pointer-events-none">arrow_back_ios_new</span>
+        </button>
+        <button id="lb-next"
+            class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors z-[10000] p-3 md:p-5 bg-black/20 rounded-full hover:bg-black/60 hidden max-sm:scale-75"
+            onclick="navigateLightbox(1); event.stopPropagation();">
+            <span class="material-symbols-outlined text-4xl pointer-events-none">arrow_forward_ios</span>
+        </button>
+
+        <img id="lightbox-img" src="" alt="Enlarged gallery photo">
+
+        <div id="lightbox-caption">
+            <div id="lb-counter" class="text-brand-teal text-[10px] font-bold tracking-[0.2em] uppercase mb-3 hidden">
+            </div>
+            <h3 class="font-heading font-bold text-2xl text-white mb-2" id="lb-title"></h3>
+            <p class="text-sm text-white/80 font-light leading-relaxed" id="lb-desc"></p>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ FOOTER ══════════════════ -->
+    <footer class="bg-brand-dark text-gray-400 py-20 px-6 border-t border-white/5">
+        <div class="max-w-page mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 mb-16">
+                <!-- Col 1 -->
+                <div>
+                    <div class="mb-6">
+                        <img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto brightness-0 invert" loading="lazy">
+                    </div>
+                    <p class="text-sm leading-relaxed mb-8">Climate Earth Environmental Conservation Foundation (CEEECF)
+                        is a registered nonprofit organization dedicated to promoting environmental sustainability and
+                        community resilience through innovative solutions.</p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h5 class="text-white font-bold mb-6">Quick Links</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="about.html" class="hover:text-brand-teal transition-colors">About Us</a></li>
+                        <li><a href="programs.html" class="hover:text-brand-teal transition-colors">Our Programs</a>
+                        </li>
+                        <li><a href="gallery.html" class="hover:text-brand-teal transition-colors">Photo Gallery</a>
+                        </li>
+                        <li><a href="partnerships.html" class="hover:text-brand-teal transition-colors">Get Involved</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h5 class="text-white font-bold mb-6">Programs</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="environmental-education.html"
+                                class="hover:text-brand-teal transition-colors">Environmental Education</a></li>
+                        <li><a href="climate-action.html" class="hover:text-brand-teal transition-colors">Climate
+                                Action</a></li>
+                        <li><a href="wash.html" class="hover:text-brand-teal transition-colors">WASH Initiatives</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2026 Climate Earth Environmental Conservation Foundation (CEEECF). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════════ SCRIPTS ══════════════════ -->
+    <script>
+        // ── Mobile Menu ──────────────────────────────────────────────────────
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+
+        function toggleMenu(isOpen) {
+            if (isOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                menuOverlay.classList.remove('hidden');
+                setTimeout(() => menuOverlay.classList.add('opacity-100'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                menuOverlay.classList.remove('opacity-100');
+                setTimeout(() => {
+                    menuOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+        }
+
+        if (menuBtn && closeBtn && mobileMenu && menuOverlay) {
+            menuBtn.addEventListener('click', () => toggleMenu(true));
+            closeBtn.addEventListener('click', () => toggleMenu(false));
+            menuOverlay.addEventListener('click', () => toggleMenu(false));
+        }
+
+        // ── Lightbox Logic ───────────────────────────────────────────────────
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbTitle = document.getElementById('lb-title');
+        const lbDesc = document.getElementById('lb-desc');
+        const lbCounter = document.getElementById('lb-counter');
+        const lbPrev = document.getElementById('lb-prev');
+        const lbNext = document.getElementById('lb-next');
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function openLightbox(card) {
+            const hiddenGallery = card.querySelector('.hidden-gallery');
+            currentGallery = [];
+            currentIndex = 0;
+
+            if (hiddenGallery) {
+                // Feature multiple images
+                const items = hiddenGallery.querySelectorAll('div');
+                items.forEach(item => {
+                    currentGallery.push({
+                        src: item.getAttribute('data-src'),
+                        title: item.getAttribute('data-title'),
+                        desc: item.getAttribute('data-caption')
+                    });
+                });
+            } else {
+                // Feature a single image
+                const imgEl = card.querySelector('img');
+                const titleEl = card.querySelector('.name-title');
+                const descEl = card.querySelector('.description');
+
+                currentGallery.push({
+                    src: imgEl ? (imgEl.getAttribute('data-full') || imgEl.src) : '',
+                    title: titleEl ? titleEl.textContent : '',
+                    desc: descEl ? descEl.textContent : ''
+                });
+            }
+
+            updateLightboxContent();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightboxContent() {
+            if (currentGallery.length === 0) return;
+
+            const item = currentGallery[currentIndex];
+            lbImg.src = item.src;
+            lbTitle.textContent = item.title;
+            lbDesc.textContent = item.desc;
+
+            // Show or hide multi-image UI
+            if (currentGallery.length > 1) {
+                lbCounter.textContent = `Photo ${currentIndex + 1} of ${currentGallery.length}`;
+                lbCounter.classList.remove('hidden');
+                lbPrev.classList.remove('hidden');
+                lbNext.classList.remove('hidden');
+            } else {
+                lbCounter.classList.add('hidden');
+                lbPrev.classList.add('hidden');
+                lbNext.classList.add('hidden');
+            }
+        }
+
+        function navigateLightbox(dir) {
+            currentIndex += dir;
+            if (currentIndex < 0) currentIndex = currentGallery.length - 1;
+            if (currentIndex >= currentGallery.length) currentIndex = 0;
+            updateLightboxContent();
+        }
+
+        function closeLightbox(e) {
+            // Close if clicked outside image/text or on the close button
+            if (e && (e.target.tagName === 'IMG' || e.target.closest('#lightbox-caption'))) return;
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', e => {
+            if (!lightbox.classList.contains('open')) return;
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                navigateLightbox(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateLightbox(1);
+            }
+        });
+    </script>
+</body>
+
+</html>

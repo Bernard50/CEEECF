@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnerships - CEEECF</title>
+    <meta name="description" content="Collaborate with CEEECF to drive sustainable impact and community resilience.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="partnerships-hero.png" fetchpriority="high">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#1B4D3E',
+                            brown: '#5D4037',
+                            white: '#F9FBF9',
+                            teal: '#008080',
+                            beige: '#F5F5DC',
+                            dark: '#0A1A15',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    maxWidth: {
+                        'page': '1320px',
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 50px -12px rgba(27, 77, 62, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary { @apply bg-brand-green text-white px-8 py-4 rounded-md font-bold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95; }
+            .nav-link { @apply text-brand-green font-medium hover:text-brand-teal transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-teal after:transition-all hover:after:w-full; }
+            .card-partnership { @apply bg-white p-8 rounded-2xl border border-gray-100 transition-all duration-500 hover:border-brand-teal hover:-translate-y-1; }
+        }
+    </style>
+</head>
+
+<body class="bg-brand-white text-gray-900 font-sans leading-relaxed">
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <nav class="max-w-page mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html"><img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto" loading="lazy"></a>
+            </div>
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="programs.html" class="nav-link">Programs</a>
+                <a href="index.html#projects" class="nav-link">Projects & Impact</a>
+                <a href="partnerships.html" class="nav-link text-brand-teal after:w-full">Partner With Us</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="donate.html" class="btn-primary">Donate</a>
+                <!-- Mobile Menu Toggle -->
+                <button id="menu-btn" class="lg:hidden text-brand-green flex items-center">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div id="menu-overlay"
+            class="fixed inset-0 bg-brand-dark/40 backdrop-blur-sm z-[55] hidden lg:hidden transition-opacity duration-300 opacity-0">
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed top-0 right-0 w-[85%] max-w-sm h-screen bg-gradient-to-b from-[#11382E] to-[#0A261F] z-[60] flex flex-col p-8 transition-transform duration-500 translate-x-full lg:hidden shadow-2xl overflow-y-auto">
+            <div class="flex justify-between items-center mb-16">
+                <img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto brightness-0 invert" loading="lazy">
+                <button id="close-menu" class="text-white hover:rotate-90 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-4xl">close</span>
+                </button>
+            </div>
+            <div class="flex flex-col gap-8 text-2xl font-bold text-white relative z-10 font-heading">
+                <a href="index.html" class="hover:text-brand-teal transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-teal transition-colors">About</a>
+                <a href="programs.html" class="hover:text-brand-teal transition-colors">Programs</a>
+                <a href="index.html#projects" class="hover:text-brand-teal transition-colors">Projects & Impact</a>
+                <a href="partnerships.html" class="text-brand-teal transition-colors">Partner With Us</a>
+                <a href="donate.html"
+                    class="inline-block px-8 py-5 bg-brand-teal text-white rounded-xl text-center mt-4 text-xl font-black shadow-lg hover:shadow-brand-teal/20 transition-all active:scale-95">Donate
+                    Now</a>
+            </div>
+            <div class="absolute bottom-10 right-10 opacity-5 pointer-events-none">
+                <span class="material-symbols-outlined text-[240px] text-white">eco</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="relative min-h-[60vh] flex items-center bg-brand-green text-white overflow-hidden">
+            <div class="absolute inset-0 z-0 scale-105">
+                <img src="partnerships-hero.png" alt="Global Partnership" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-green/80 via-brand-green/60 to-transparent">
+                </div>
+            </div>
+            <div class="max-w-page mx-auto px-4 relative z-10 py-20">
+                <div class="max-w-2xl">
+                    <span
+                        class="inline-block py-1 px-3 bg-brand-teal text-white text-xs font-bold tracking-widest uppercase rounded mb-6">Join
+                        Our Mission</span>
+                    <h1 class="font-heading text-5xl md:text-6xl font-black mb-8 leading-tight">Partnering for a <span
+                            class="text-white [text-shadow:_0_4px_12px_rgb(0_0_0_/_60%)]">Sustainable Future</span></h1>
+                    <p
+                        class="text-xl text-brand-white/90 leading-relaxed mb-10 [text-shadow:_0_2px_8px_rgb(0_0_0_/_50%)]">
+                        We believe collective action is the key to solving the world's most pressing environmental and
+                        social challenges. Join us in building resilient communities.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact"
+                            class="px-8 py-4 bg-white text-brand-green rounded-md font-bold hover:bg-brand-teal hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95">Get
+                            in Touch</a>
+                        <a href="#impact"
+                            class="px-8 py-4 border-2 border-white text-white rounded-md font-bold hover:bg-brand-green hover:border-brand-green transition-all">Our
+                            Impact</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY PARTNER SECTION -->
+        <section class="py-24">
+            <div class="max-w-page mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-green mb-6">Why Partner with
+                        CEEECF?</h2>
+                    <p class="text-gray-600 text-lg">Partnering with us means joining a movement dedicated to creating
+                        tangible, community-led change that is both sustainable and inclusive.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card-partnership">
+                        <div
+                            class="w-14 h-14 bg-brand-green/10 rounded-xl flex items-center justify-center text-brand-green mb-6">
+                            <span class="material-symbols-outlined text-3xl">hub</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brand-green mb-4">Unmatched Community Reach</h3>
+                        <p class="text-gray-600">Gain access to a vast network of local communities, smallholder
+                            farmers, and youth groups across diverse regions.</p>
+                    </div>
+                    <div class="card-partnership">
+                        <div
+                            class="w-14 h-14 bg-brand-teal/10 rounded-xl flex items-center justify-center text-brand-teal mb-6">
+                            <span class="material-symbols-outlined text-3xl">verified</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brand-green mb-4">Evidence-Based Impact</h3>
+                        <p class="text-gray-600">Our programs are built on rigorous research and documented best
+                            practices, ensuring every dollar and hour is maximized.</p>
+                    </div>
+                    <div class="card-partnership">
+                        <div
+                            class="w-14 h-14 bg-brand-brown/10 rounded-xl flex items-center justify-center text-brand-brown mb-6">
+                            <span class="material-symbols-outlined text-3xl">sync_alt</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brand-green mb-4">Holistic Integration</h3>
+                        <p class="text-gray-600">We integrate environmental conservation with social protection,
+                            peacebuilding, and WASH for comprehensive development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNER CATEGORIES -->
+        <section class="py-24 bg-brand-green/5">
+            <div class="max-w-page mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-heading text-3xl font-bold text-brand-green mb-4">Ways to Collaborate</h2>
+                    <p class="text-gray-600">We tailor partnerships to align with your organization's goals and our
+                        mission's needs.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Corporate -->
+                    <div
+                        class="bg-white p-8 md:p-12 rounded-3xl border border-gray-100 flex flex-col md:flex-row gap-10 items-center hover:border-brand-teal transition-colors duration-500">
+                        <div class="w-full md:w-1/3">
+                            <img src="social-integration-1.jpg" alt="Corporate Partnership Meeting"
+                                class="w-full h-64 object-cover rounded-2xl">
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="font-heading text-2xl font-bold text-brand-green mb-4">Corporate Social
+                                Responsibility (CSR)</h3>
+                            <p class="text-gray-600 mb-6 text-lg">Align your brand with world-class environmental
+                                initiatives. We offer customized programs that meet ESG criteria while delivering real
+                                value to communities.</p>
+                            <ul class="space-y-3 mb-8 text-gray-700">
+                                <li class="flex items-center gap-3"><span
+                                        class="material-symbols-outlined text-brand-teal text-sm">check_circle</span>
+                                    Employee volunteer engagement</li>
+                                <li class="flex items-center gap-3"><span
+                                        class="material-symbols-outlined text-brand-teal text-sm">check_circle</span>
+                                    Sustainable supply chain support</li>
+                                <li class="flex items-center gap-3"><span
+                                        class="material-symbols-outlined text-brand-teal text-sm">check_circle</span>
+                                    Branding and impact reporting</li>
+                            </ul>
+                            <a href="#contact"
+                                class="text-brand-teal font-bold flex items-center gap-2 hover:gap-4 transition-all">Inquire
+                                Now <span class="material-symbols-outlined">east</span></a>
+                        </div>
+                    </div>
+
+                    <!-- NGOs -->
+                    <div
+                        class="bg-white p-8 md:p-12 rounded-3xl border border-gray-100 flex flex-col md:flex-row-reverse gap-10 items-center hover:border-brand-teal transition-colors duration-500">
+                        <div class="w-full md:w-1/3">
+                            <img src="social-integration-2.jpg" alt="Strategic NGO Alliance"
+                                class="w-full h-64 object-cover rounded-2xl">
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="font-heading text-2xl font-bold text-brand-green mb-4">Strategic NGO Alliances
+                            </h3>
+                            <p class="text-gray-600 mb-6 text-lg">Join forces with CEEECF to scale technical capacity
+                                and amplify voice in policy advocacy and frontline implementation.</p>
+                            <ul class="space-y-3 mb-8 text-gray-700">
+                                <li class="flex items-center gap-3"><span
+                                        class="material-symbols-outlined text-brand-teal text-sm">check_circle</span>
+                                    Joint project implementation</li>
+                                <li class="flex items-center gap-3"><span
+                                        class="material-symbols-outlined text-brand-teal text-sm">check_circle</span>
+                                    Shared research and data</li>
+                                <li class="flex items-center gap-3"><span
+                                        class="material-symbols-outlined text-brand-teal text-sm">check_circle</span>
+                                    Coordinated advocacy efforts</li>
+                            </ul>
+                            <a href="#contact"
+                                class="text-brand-teal font-bold flex items-center gap-2 hover:gap-4 transition-all">Explore
+                                Collaboration <span class="material-symbols-outlined">east</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-24 bg-brand-green text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 pointer-events-none"
+                style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
+            <div class="max-w-page mx-auto px-6 relative z-10 text-center">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-8">Ready to Build Lasting Impact Together?
+                </h2>
+                <p class="text-xl text-brand-white/80 max-w-2xl mx-auto mb-12">Whether you're looking to fund a project,
+                    share expertise, or start a long-term strategic partnership, we want to hear from you.</p>
+
+                <div
+                    class="inline-flex flex-col md:flex-row gap-8 bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/20 items-center justify-center">
+                    <div class="text-left">
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-teal mb-2 block">Direct
+                            Inquiry</span>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold">info@ceecf.org</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-px h-12 bg-white/20 hidden md:block"></div>
+                    <div class="text-left">
+                        <span
+                            class="text-xs font-bold uppercase tracking-widest text-brand-teal mb-2 block">Location</span>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">CEEECF Headquarters</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-gray-400 py-20 px-6 border-t border-white/5">
+        <div class="max-w-page mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 mb-16">
+                <!-- Col 1 -->
+                <div>
+                    <div class="mb-6">
+                        <img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto brightness-0 invert" loading="lazy">
+                    </div>
+                    <p class="text-sm leading-relaxed mb-8">Climate Earth Environmental Conservation Foundation (CEEECF)
+                        is a registered nonprofit organization dedicated to promoting environmental sustainability and
+                        community resilience through innovative solutions.</p>
+                    <div class="flex gap-4">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/profile.php?id=61570554088148" target="_blank"
+                            class="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-[#1877F2] hover:text-white transition-all group"
+                            title="Facebook">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/ceeecfoundation?igsh=aXA0YW9zamtmaWw1" target="_blank"
+                            class="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:text-white transition-all group"
+                            title="Instagram">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h5 class="text-white font-bold mb-6">Quick Links</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="about.html" class="hover:text-brand-teal transition-colors">About Us</a></li>
+                        <li><a href="programs.html" class="hover:text-brand-teal transition-colors">Our
+                                Programs</a></li>
+                        <li><a href="index.html#projects" class="hover:text-brand-teal transition-colors">Projects &
+                                Impact</a></li>
+                        <li><a href="partnerships.html" class="hover:text-brand-teal transition-colors">Get Involved</a>
+                        </li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScFKUdCOEXU8L5MMJ7wQbDWcFSUoFHUpvnRXKOflYVs7xMfnQ/viewform?usp=publish-editor"
+                                target="_blank" class="hover:text-brand-teal transition-colors">Volunteer With Us</a>
+                        </li>
+                        <li><a href="#" class="hover:text-brand-teal transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h5 class="text-white font-bold mb-6">Programs</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="environmental-education.html"
+                                class="hover:text-brand-teal transition-colors">Environmental Education</a></li>
+                        <li><a href="climate-action.html" class="hover:text-brand-teal transition-colors">Climate
+                                Action</a></li>
+                        <li><a href="agriculture-food-security.html"
+                                class="hover:text-brand-teal transition-colors">Regenerative Agriculture</a></li>
+                        <li><a href="peacebuilding.html"
+                                class="hover:text-brand-teal transition-colors">Peacebuilding</a></li>
+                        <li><a href="wash.html" class="hover:text-brand-teal transition-colors">WASH Initiatives</a>
+                        </li>
+                        <li><a href="gbv-prevention.html" class="hover:text-brand-teal transition-colors">Gender
+                                Protection</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2026 Climate Earth Environmental Conservation Foundation (CEEECF). All Rights Reserved. A
+                    Registered Nonprofit Organization. Empowering communities for a sustainable future.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        function toggleMenu(isOpen) {
+            if (isOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                menuOverlay.classList.remove('hidden');
+                setTimeout(() => menuOverlay.classList.add('opacity-100'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                menuOverlay.classList.remove('opacity-100');
+                setTimeout(() => {
+                    menuOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+        }
+
+        if (menuBtn && closeBtn && mobileMenu && menuOverlay) {
+            menuBtn.addEventListener('click', () => toggleMenu(true));
+            closeBtn.addEventListener('click', () => toggleMenu(false));
+            menuOverlay.addEventListener('click', () => toggleMenu(false));
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+        }
+    </script>
+</body>
+
+</html>
