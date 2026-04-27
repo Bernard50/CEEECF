@@ -19,6 +19,12 @@
         #lightbox.open{display:flex;}#lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;}
         .prose-body{font-family:'Lora',serif;font-size:1.125rem;line-height:1.85;color:#374151;}.prose-body p{margin-bottom:1.5rem;}
     </style>
+    <style>
+        /* Prevent mobile menu from being dragged open */
+        html, body { overflow-x: hidden !important; overscroll-behavior-x: none !important; }
+        #mobile-menu { touch-action: pan-y; pointer-events: none; }
+        #mobile-menu:not(.translate-x-full) { pointer-events: auto; }
+    </style>
 </head>
 <body class="bg-brand-white text-gray-900 font-sans leading-relaxed selection:bg-brand-teal selection:text-white overflow-x-hidden">
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">

@@ -76,6 +76,12 @@
             }
         }
     </style>
+    <style>
+        /* Prevent mobile menu from being dragged open */
+        html, body { overflow-x: hidden !important; overscroll-behavior-x: none !important; }
+        #mobile-menu { touch-action: pan-y; pointer-events: none; }
+        #mobile-menu:not(.translate-x-full) { pointer-events: auto; }
+    </style>
 </head>
 
 <body class="bg-brand-white text-gray-900 font-sans leading-relaxed overflow-x-hidden">
