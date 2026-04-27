@@ -20,7 +20,7 @@
         .prose-body{font-family:'Lora',serif;font-size:1.125rem;line-height:1.85;color:#374151;}.prose-body p{margin-bottom:1.5rem;}
     </style>
 </head>
-<body class="bg-brand-white text-gray-900 font-sans leading-relaxed selection:bg-brand-teal selection:text-white">
+<body class="bg-brand-white text-gray-900 font-sans leading-relaxed selection:bg-brand-teal selection:text-white overflow-x-hidden">
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <nav class="max-w-page mx-auto px-4 h-20 flex items-center justify-between">
             <a href="index.html"><img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto"></a>
@@ -37,7 +37,7 @@
             </div>
         </nav>
         <div id="menu-overlay" class="fixed inset-0 bg-brand-dark/40 backdrop-blur-sm z-[55] hidden transition-opacity duration-300 opacity-0"></div>
-        <div id="mobile-menu" class="fixed top-0 right-0 w-[85%] max-w-sm h-screen bg-gradient-to-b from-[#11382E] to-[#0A261F] z-[60] flex flex-col p-8 transition-transform duration-500 translate-x-full lg:hidden shadow-2xl overflow-y-auto">
+        <div id="mobile-menu" class="fixed top-0 right-0 w-[85%] max-w-sm h-screen bg-gradient-to-b from-[#11382E] to-[#0A261F] z-[60] flex flex-col p-8 transition-transform duration-500 translate-x-full invisible lg:hidden shadow-2xl overflow-y-auto">
             <div class="flex justify-between items-center mb-16"><img src="logo.png" alt="CEEECF Logo" class="h-10 w-auto brightness-0 invert"><button id="close-menu" class="text-white hover:rotate-90 transition-transform duration-300"><span class="material-symbols-outlined text-4xl">close</span></button></div>
             <div class="flex flex-col gap-8 text-2xl font-bold text-white font-heading">
                 <a href="index.html" class="hover:text-brand-teal transition-colors">Home</a>
@@ -145,7 +145,7 @@
     </footer>
     <script>
         const menuBtn=document.getElementById('menu-btn');const closeBtn=document.getElementById('close-menu');const mobileMenu=document.getElementById('mobile-menu');const menuOverlay=document.getElementById('menu-overlay');
-        function toggleMenu(o){if(o){mobileMenu.classList.remove('translate-x-full');menuOverlay.classList.remove('hidden');setTimeout(()=>menuOverlay.classList.add('opacity-100'),10);document.body.style.overflow='hidden';}else{mobileMenu.classList.add('translate-x-full');menuOverlay.classList.remove('opacity-100');setTimeout(()=>{menuOverlay.classList.add('hidden');document.body.style.overflow='';},300);}}
+        function toggleMenu(o){if(o){mobileMenu.classList.remove('translate-x-full', 'invisible');menuOverlay.classList.remove('hidden');setTimeout(()=>menuOverlay.classList.add('opacity-100'),10);document.body.style.overflow='hidden';}else{mobileMenu.classList.add('translate-x-full');menuOverlay.classList.remove('opacity-100');setTimeout(()=>{menuOverlay.classList.add('hidden');document.body.style.overflow='';},300);}}
         if(menuBtn&&closeBtn){{menuBtn.addEventListener('click',()=>toggleMenu(true));closeBtn.addEventListener('click',()=>toggleMenu(false));menuOverlay.addEventListener('click',()=>toggleMenu(false));}}
         const lightbox=document.getElementById('lightbox');const lightboxImg=document.getElementById('lightbox-img');
         function openLightbox(src){lightboxImg.src=src;lightbox.classList.add('open');document.body.style.overflow='hidden';}
