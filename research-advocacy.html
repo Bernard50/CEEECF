@@ -76,7 +76,7 @@
             <div class="flex items-center gap-6">
                 <a href="donate.html" class="btn-primary">Donate</a>
                 <!-- Mobile Menu Toggle -->
-                <button id="menu-btn" class="lg:hidden text-brand-green flex items-center">
+                <button id="menu-btn" class="lg:hidden text-brand-green flex items-center" style="touch-action:manipulation">
                     <span class="material-symbols-outlined text-3xl">menu</span>
                 </button>
             </div>
@@ -302,7 +302,10 @@
         }
 
         if (menuBtn && closeBtn && mobileMenu && menuOverlay) {
-            menuBtn.addEventListener('click', () => toggleMenu(true));
+            // Pinch-zoom guard: ignore click if a multi-touch just ended
+        let _pz = 0;
+        document.addEventListener('touchstart', e => { if (e.touches.length > 1) _pz = Date.now(); }, { passive: true });
+        menuBtn.addEventListener('click', () => { if (Date.now() - _pz < 600) return; toggleMenu(true); });
             closeBtn.addEventListener('click', () => toggleMenu(false));
             menuOverlay.addEventListener('click', () => toggleMenu(false));
             mobileLinks.forEach(link => {
