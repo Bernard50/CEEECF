@@ -2,21 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    {
-      "source": "/home",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/index",
-      "destination": "/",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/home",
-      "destination": "/index.html"
-    }
+    { "source": "/home", "destination": "/", "permanent": false },
+    { "source": "/index", "destination": "/", "permanent": true },
+    { "source": "/gallery", "destination": "/blog", "permanent": true }
   ]
 }
